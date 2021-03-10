@@ -19,11 +19,12 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword(){
+    allowedCharacters = ""; //resetting for every invoke
 
     passwordLength() > 0 ? passwordCharacterType() : invalidLengthAlert();
     var result = "";
 
-    if(allowedCharacters != "" && pass_len > 0 ){
+    if( allowedCharacters != "" && pass_len > 0 ){
       var allowedCharactersLength = allowedCharacters.length;
       for ( var i = 0; i < pass_len; i++ ) {
          result += allowedCharacters.charAt(Math.floor(Math.random() * allowedCharactersLength));
@@ -53,8 +54,6 @@ function passwordLength(){
  * generate password character type requirement
  */
 function passwordCharacterType(){
-  allowedCharacters = ""; //resetting for every invoke
-
   var uppercaseInc =  confirm("Do you want to include upper case characters?");
   var lowerCaseInc =  confirm("Do you want to include lower case characters?");
   var numberInc =  confirm("Do you want to include numbers?");
